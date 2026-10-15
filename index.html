@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="S'Lindile Sithole, software and data engineer in Brakpan, South Africa. Projects, skills, experience and education.">
+<meta property="og:title" content="S'Lindile Sithole · Software & Data Engineer">
+<meta property="og:description" content="Data pipelines that answer questions in seconds, and mobile apps that connect people with the help they need.">
+<title>S'Lindile Sithole · Software &amp; Data Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one 1080px column; hero with name + spec sheet, projects as two unequal panels, education as a vertical pipeline (newest at the source). */
+:root{
+  --bg:#F3F4F8; --surface:#FFFFFF; --ink:#141729; --muted:#5A5F78; --line:#DADCE8;
+  --accent:#5B3FC4; --accent-soft:#ECE8FB; --gold:#B7791F;
+  --display:"Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1120; --surface:#171A2E; --ink:#ECEDF6; --muted:#A3A7C2; --line:#2A2E48;
+    --accent:#A693F5; --accent-soft:#251F48; --gold:#E3B261; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1120; --surface:#171A2E; --ink:#ECEDF6; --muted:#A3A7C2; --line:#2A2E48;
+  --accent:#A693F5; --accent-soft:#251F48; --gold:#E3B261; color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);padding-inline:20px;padding-block:0}
+.wrap{max-width:1080px;margin:0 auto}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-0.02em}
+.label{font:500 12px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:24px;flex-wrap:wrap}
+.mark{font:800 18px/1 var(--display);letter-spacing:-0.03em;color:var(--ink);text-decoration:none}
+.mark span{color:var(--accent)}
+.top nav{display:flex;gap:20px;flex-wrap:wrap}
+.top nav a{color:var(--muted);text-decoration:none;font-weight:500;font-size:15px}
+.top nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.45fr 1fr;gap:48px;align-items:end;padding-block:48px 64px;border-bottom:1px solid var(--line)}
+.hero > *{min-width:0}
+.hero h1{font-size:clamp(48px,9vw,104px);line-height:.92;font-weight:800;letter-spacing:-0.045em}
+.hero h1 .s{color:var(--accent)}
+.hero .lede{font-size:clamp(18px,2.1vw,21px);line-height:1.5;max-width:34ch;margin:28px 0 0;color:var(--ink)}
+.hero .lede em{font-style:normal;background:linear-gradient(transparent 62%,var(--accent-soft) 62%)}
+.ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1.5px solid var(--ink);color:var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+.spec{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;font-family:var(--mono);font-size:14px}
+.spec .head{display:flex;justify-content:space-between;align-items:center;padding-bottom:14px;margin-bottom:6px;border-bottom:1px dashed var(--line)}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}
+.live i{width:8px;height:8px;border-radius:50%;background:#2FA36B;box-shadow:0 0 0 0 rgba(47,163,107,.5);animation:pulse 2.4s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(47,163,107,0)}100%{box-shadow:0 0 0 0 rgba(47,163,107,0)}}
+.spec dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 18px}
+.spec dt{color:var(--muted)}
+.spec dd{margin:0;color:var(--ink)}
+.spec dd b{color:var(--accent);font-weight:500}
+
+/* sections */
+section{padding-block:72px;border-bottom:1px solid var(--line)}
+.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head h2{font-size:clamp(30px,4.4vw,44px);font-weight:700}
+
+/* about */
+.about{display:grid;grid-template-columns:1fr 1.6fr;gap:48px}
+.about > *{min-width:0}
+.about p{margin:0 0 16px;max-width:62ch;color:var(--ink)}
+.about p:last-child{margin-bottom:0}
+.facts{display:grid;gap:18px;align-content:start}
+.fact{display:grid;gap:4px}
+.fact strong{font:700 22px/1.2 var(--display)}
+
+/* projects */
+.projects{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:16px;min-width:0}
+.proj h3{font-size:30px;font-weight:700}
+.proj .kind{color:var(--gold)}
+.proj p{margin:0;color:var(--ink)}
+.proj ul{margin:0;padding-left:18px;display:grid;gap:6px;color:var(--muted)}
+.proj ul li::marker{color:var(--accent)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:8px}
+.tag{font:500 12px/1 var(--mono);padding:7px 10px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
+.proj .more{font-weight:600;text-decoration:none}
+.proj .more:hover{text-decoration:underline}
+.flow{font:12px/1.5 var(--mono);color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:nowrap}
+.flow b{color:var(--accent);font-weight:500}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.skills > div{min-width:0}
+.skills h3{font-size:19px;font-weight:700;margin-bottom:12px}
+.skills ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.skills li{padding-bottom:8px;border-bottom:1px solid var(--line);font-size:15px}
+
+/* education pipeline */
+.pipe{position:relative;display:grid;gap:0}
+.stage{display:grid;grid-template-columns:150px 28px 1fr;gap:20px}
+.stage > *{min-width:0}
+.when{font:500 14px/1.4 var(--mono);color:var(--muted);text-align:right;padding-top:4px;font-variant-numeric:tabular-nums}
+.node{position:relative;display:flex;justify-content:center}
+.node::before{content:"";position:absolute;top:0;bottom:0;width:2px;background:var(--line)}
+.stage:first-child .node::before{top:10px}
+.stage:last-child .node::before{bottom:auto;height:10px}
+.node i{position:relative;margin-top:6px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)}
+.stage.current .node i{background:var(--accent)}
+.body{padding-bottom:44px}
+.stage:last-child .body{padding-bottom:0}
+.body h3{font-size:24px;font-weight:700}
+.body .where{color:var(--muted);margin:4px 0 12px}
+.body p{margin:0 0 12px;max-width:64ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--surface);font-variant-numeric:tabular-nums}
+.chip b{color:var(--accent);font-family:var(--mono);font-weight:500}
+.badge{display:inline-block;font:500 11px/1 var(--mono);text-transform:uppercase;letter-spacing:.1em;padding:5px 8px;border-radius:4px;background:var(--accent);color:var(--bg);vertical-align:middle;margin-left:8px}
+
+/* contact */
+.contact{padding-block:80px;border-bottom:0;text-align:left}
+.contact h2{font-size:clamp(36px,6vw,64px);font-weight:800;max-width:16ch;letter-spacing:-0.035em}
+.mail{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 24px;font:500 clamp(17px,2.4vw,22px)/1.3 var(--mono);color:var(--ink)}
+.mail span{user-select:all;overflow-wrap:anywhere}
+.mail button{font:600 14px/1 var(--body);padding:10px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.mail button:hover{border-color:var(--accent)}
+.contact p{color:var(--muted);max-width:52ch;margin:18px 0 28px}
+footer{padding-block:28px 40px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line)}
+
+@media (max-width:860px){
+  .hero,.about,.projects{grid-template-columns:1fr}
+  .hero{gap:36px}
+  .skills{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .skills{grid-template-columns:1fr}
+  .stage{grid-template-columns:20px 1fr;gap:14px}
+  .when{grid-column:2;grid-row:1;text-align:left;padding-top:0}
+  .node{grid-column:1;grid-row:1 / span 2}
+  .body{grid-column:2}
+  .top nav{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){.live i{animation:none}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="mark" href="#top">slindile<span>.</span>sithole</a>
+    <nav aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="top">
+    <div>
+      <p class="label">Software engineer · Brakpan, South Africa</p>
+      <h1>S<span class="s">’</span>Lindile<br>Sithole</h1>
+      <p class="lede">I build <em>data pipelines</em> that answer questions in seconds, and <em>mobile apps</em> that connect people with the help they need.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://github.com/SlindileMaJobeh" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/slindile-sithole-7932231b8/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M0 1.15C0 .52.52 0 1.18 0h13.64C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.18 1.15H1.18C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.54v7.22h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.21V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.19v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <aside class="spec" aria-label="At a glance">
+      <div class="head"><span class="label">profile.yml</span><span class="live"><i></i>open to work</span></div>
+      <dl>
+        <dt>role</dt><dd>Software &amp; data engineer</dd>
+        <dt>now</dt><dd>WeThinkCode_ · <b>Year 1 complete</b></dd>
+        <dt>degree</dt><dd>BSc IT, Systems Development</dd>
+        <dt>stack</dt><dd>Python · Java · SQL</dd>
+        <dt>data</dt><dd>Spark · Kafka · Airflow · dbt</dd>
+        <dt>speaks</dt><dd>isiZulu · English</dd>
+      </dl>
+    </aside>
+  </div>
+
+  <section id="about">
+    <div class="about">
+      <div class="facts">
+        <p class="label">About</p>
+        <div class="fact"><strong>10+ years</strong><span style="color:var(--muted)">studying IT, from NC(V) to degree to engineering bootcamp</span></div>
+        <div class="fact"><strong>NQF 7</strong><span style="color:var(--muted)">BSc in Information Technology</span></div>
+        <div class="fact"><strong>93%</strong><span style="color:var(--muted)">top programming module mark at Richfield</span></div>
+      </div>
+      <div>
+        <p>I’m a South African software engineer who enjoys turning messy, real-world processes into systems that work. My path into tech started at TVET college with the National Certificate (Vocational) in IT and Computer Science, carried on through a Bachelor of Science in Information Technology with a Systems Development elective at Richfield, and continues today in the WeThinkCode_ Software Engineering programme.</p>
+        <p>Lately I’ve been building end-to-end data platforms: streaming change data from a shop database through Kafka and Spark, loading a warehouse with Airflow and dbt, and serving it all through a FastAPI dashboard. I also build Android apps in Java with Firebase and Google Maps.</p>
+        <p>I care about systems design, tested code, and being honest about trade-offs. I’m looking for a role where I can keep shipping and keep learning from a strong team.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head">
+      <h2>Selected projects</h2>
+      <a class="label" href="https://github.com/SlindileMaJobeh?tab=repositories" target="_blank" rel="noopener" style="text-decoration:none;color:var(--accent)">All repositories →</a>
+    </div>
+    <div class="projects">
+      <article class="proj">
+        <p class="label kind">Data engineering · Python</p>
+        <h3>CartPulse</h3>
+        <p>Real-time and batch analytics for a simulated South African online store. It reports today’s revenue, the live checkout funnel and abandoned carts within seconds, and every 30 minutes builds history on sales around public holidays and month-end payday, courier delivery SLAs and customer segments.</p>
+        <div class="flow" aria-label="Pipeline">Postgres → <b>Debezium CDC</b> → Redpanda → <b>Spark Streaming</b> → Redis / lake → <b>Airflow + dbt</b> → FastAPI</div>
+        <ul>
+          <li>Abandoned-cart detection with stateful, event-time streaming</li>
+          <li>Idempotent sinks, with tests that replay batches to prove nothing double-counts</li>
+          <li>SCD Type 2 history, data-quality quarantine and masked personal data</li>
+          <li>Nine services started with one Docker Compose command; CI on GitHub Actions</li>
+        </ul>
+        <div class="tags"><span class="tag">PySpark</span><span class="tag">Kafka</span><span class="tag">Debezium</span><span class="tag">Airflow</span><span class="tag">dbt</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div>
+        <a class="more" href="https://github.com/SlindileMaJobeh/cartpulse" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+      <article class="proj">
+        <p class="label kind">Mobile · Java</p>
+        <h3>ServiceApp</h3>
+        <p>An Android marketplace that connects clients with nearby plumbers, electricians, mechanics and cleaners, from the first request to the final rating.</p>
+        <ul>
+          <li>GPS search for providers who are online nearby</li>
+          <li>Real-time chat with photo sharing to agree on price</li>
+          <li>Live map tracking with an arrival notification</li>
+          <li>Provider dashboard and two-way ratings after each job</li>
+        </ul>
+        <div class="tags"><span class="tag">Android</span><span class="tag">Java</span><span class="tag">Firebase</span><span class="tag">Firestore</span><span class="tag">Google Maps SDK</span><span class="tag">Material 3</span></div>
+        <a class="more" href="https://github.com/SlindileMaJobeh/ServiceApp" target="_blank" rel="noopener">View on GitHub →</a>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Skills</h2></div>
+    <div class="skills">
+      <div><h3>Languages</h3><ul><li>Python</li><li>Java</li><li>SQL</li><li>HTML, CSS &amp; web programming</li></ul></div>
+      <div><h3>Data</h3><ul><li>Apache Spark (PySpark)</li><li>Kafka / Redpanda, Debezium</li><li>Airflow, dbt</li><li>PostgreSQL, Redis</li></ul></div>
+      <div><h3>Apps &amp; platforms</h3><ul><li>Android development</li><li>Firebase &amp; Google Maps SDK</li><li>FastAPI &amp; REST APIs</li><li>Docker, GitHub Actions</li></ul></div>
+      <div><h3>Practice</h3><ul><li>Systems analysis &amp; design</li><li>Testing &amp; debugging</li><li>Data structures &amp; algorithms</li><li>IT project management</li><li>Client service, negotiation &amp; conflict resolution</li></ul></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Work experience</h2><span class="label">Newest first</span></div>
+    <div class="pipe">
+      <div class="stage">
+        <div class="when">2021 – 2023</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>Cashier</h3>
+          <p class="where">Sbizo’s Lounge</p>
+          <p>Processed transactions and kept the daily cash flow accurate, managed stock replenishment and supported the day-to-day running of the business.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">2014 – 2015</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>Call centre agent</h3>
+          <p class="where">Ignition Telecommunications</p>
+          <p>Advised clients on their Vodacom contracts and helped them through contract upgrades, assisted on the switchboard and kept records filed.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">2014</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>General assistant</h3>
+          <p class="where">Philakithi Community Service (NPO)</p>
+          <p>Handed out food parcels to families in need, served soup kitchens at local schools and took part in community outreach and awareness drives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="sec-head"><h2>Education</h2><span class="label">Newest first</span></div>
+    <div class="pipe">
+      <div class="stage current">
+        <div class="when">2025 – now</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>Occupational Certificate: Software Engineer <span class="badge">In progress</span></h3>
+          <p class="where">WeThinkCode_ · Ekurhuleni East TVET College, Springs campus · NQF 6</p>
+          <p>A 16-month, QCTO-accredited programme. Year 1 completed with a final outcome of Competent in every module, covering programming fundamentals, object-oriented programming and systems design, with practical and workplace-experience components.</p>
+          <div class="chips">
+            <span class="chip">Programming fundamentals summative <b>95%</b></span>
+            <span class="chip">OOP fundamentals <b>93.1%</b></span>
+            <span class="chip">Systems design <b>75%</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">2018 – 2021</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>BSc in Information Technology</h3>
+          <p class="where">Richfield Graduate Institute of Technology, Durban · Systems Development elective · NQF 7</p>
+          <p>Covered programming, databases, cloud computing, networks, mobile app development, artificial intelligence, big data and IoT, computer security and IT project management, finishing with an IT project and work-integrated learning.</p>
+          <div class="chips">
+            <span class="chip">Programming 621 <b>93%</b></span>
+            <span class="chip">Information Systems 621 <b>89%</b></span>
+            <span class="chip">Database Systems <b>81%</b></span>
+            <span class="chip">Cloud Computing <b>78%</b></span>
+            <span class="chip">Computer Security <b>75%</b></span>
+            <span class="chip">Programming 732 &amp; 742 <b>75%</b></span>
+          </div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">2015 – 2017</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>National Certificate (Vocational), Levels 2 – 4</h3>
+          <p class="where">Coastal TVET College · Information Technology and Computer Science</p>
+          <p>Computer hardware and software, principles of computer programming, system analysis and design, multimedia and information systems.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="when">2011</div>
+        <div class="node"><i></i></div>
+        <div class="body">
+          <h3>National Senior Certificate</h3>
+          <p class="where">Woods High School · Bachelor’s degree pass</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <p class="label">Contact</p>
+    <h2>Let’s build something useful.</h2>
+    <p>I’m open to software engineering, data engineering and mobile development roles. Email me, message me on LinkedIn, or have a look at my code on GitHub.</p>
+    <div class="mail"><span id="email">slindilejobeh@gmail.com</span><button type="button" id="copy">Copy email</button></div>
+    <div class="ctas">
+      <a class="btn primary" href="https://www.linkedin.com/in/slindile-sithole-7932231b8/" target="_blank" rel="noopener">Message me on LinkedIn</a>
+      <a class="btn" href="https://github.com/SlindileMaJobeh" target="_blank" rel="noopener">github.com/SlindileMaJobeh</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 S’Lindile Sithole</span>
+    <span>Brakpan, Gauteng, South Africa</span>
+  </footer>
+</div>
+
+<script>
+document.getElementById('copy').addEventListener('click',function(){
+  var b=this,t=document.getElementById('email');
+  var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy email'},1800)};
+  var sel=function(){var r=document.createRange();r.selectNodeContents(t);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C'};
+  try{navigator.clipboard.writeText(t.textContent).then(done,sel)}catch(e){sel()}
+});
+</script>
+
+</body>
+</html>
